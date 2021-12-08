@@ -1,0 +1,54 @@
+{% extends 'krishi/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <h2 class = "text-center alert alert-info"> Add Details </h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value=" submit">
+        </form>
+        <script>
+            if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+    </div>
+    <div class="col-sm-7 offset-1">
+        <h4 class = "text-center alert alert-info">Show Information</h4>
+        {% if inf %}
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">TRACTOR</th>
+                <th scope="col">GMAIL</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for inm in inf %}
+              <tr>
+                <th scope="row">{{inm.id}}</th>
+                <td>{{inm.name}}</td>
+                <td>{{inm.tractor}}</td>
+                <td>{{inm.email}}</td>
+                <td><a href="{% url 'updatedata' inm.id %}" class="btn btn-warning">Edit</a>
+                  <form action="{% url 'deletedata' inm.id %}" method="post" class="d-inline"> {% csrf_token %}
+                    <input type="submit" class = "btn btn-danger"value="Delete">
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+            <h4 class = "text-center alert alert-warning">No Records..!</h4>
+        {% endif %}
+    
+    </div>
+
+</div>
+
+{% endblock content %}
