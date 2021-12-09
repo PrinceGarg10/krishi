@@ -8,7 +8,7 @@ class registration(forms.ModelForm):
         model  = User
         fields = ['name', 'email', 'password', 'tractor','model_number','implements']
         labels = {
-            "name" :"Farmer's name",
+            "name" :"Farmer's Name",
             "email" :"Email",
             "password" :"Password",
             "tractor" :"Tractor",
