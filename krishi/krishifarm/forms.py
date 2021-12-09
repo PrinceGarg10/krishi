@@ -36,5 +36,6 @@ class registration(forms.ModelForm):
 
     implements = forms.MultipleChoiceField(
             widget = forms.CheckboxSelectMultiple,
-            choices = IMPLEMENTS
+            choices = IMPLEMENTS,
+            required = False
     )
