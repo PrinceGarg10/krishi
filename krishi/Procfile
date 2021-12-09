@@ -1,1 +1,1 @@
-web: gunicorn krishifarm.wsgi --log-file -
+web: gunicorn krishi.wsgi --log-file -
