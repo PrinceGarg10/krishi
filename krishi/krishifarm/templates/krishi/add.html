@@ -14,16 +14,15 @@
         }
         </script>
     </div>
-    <div class="col-sm-7 offset-1">
+    <div class="col-sm-6 offset-2">
         <h4 class = "text-center alert alert-info">Show Information</h4>
         {% if inf %}
         <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">NAME</th>
+                <th scope="col">Model Number</th>
                 <th scope="col">TRACTOR</th>
-                <th scope="col">GMAIL</th>
                 <th scope="col">ACTION</th>
               </tr>
             </thead>
@@ -31,10 +30,9 @@
               {% for inm in inf %}
               <tr>
                 <th scope="row">{{inm.id}}</th>
-                <td>{{inm.name}}</td>
+                <td>{{inm.model_number}}</td>
                 <td>{{inm.tractor}}</td>
-                <td>{{inm.email}}</td>
-                <td><a href="{% url 'updatedata' inm.id %}" class="btn btn-warning">Edit</a>
+                <td><a href="{% url 'updatedata' inm.id %}" class="btn btn-warning">Show/Edit</a>
                   <form action="{% url 'deletedata' inm.id %}" method="post" class="d-inline"> {% csrf_token %}
                     <input type="submit" class = "btn btn-danger"value="Delete">
                   </form>

@@ -9,6 +9,11 @@
             <input type="submit" class = "btn btn-success" value="Update">
             <a href="{% url 'addshow'%}" class="btn btn-info">Back To Home</a>
         </form>
+        <script>
+            if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
     </div>
 </div>
 {% endblock content %}
