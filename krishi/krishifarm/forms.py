@@ -7,6 +7,14 @@ class registration(forms.ModelForm):
     class Meta:
         model  = User
         fields = ['name', 'email', 'password', 'tractor','model_number','implements']
+        labels = {
+            "name" :"Farmer's name",
+            "email" :"Email",
+            "password" :"Password",
+            "tractor" :"Tractor",
+            "model_number" :"Model Number"
+            
+        }
         widgets = {
             'name' : forms.TextInput(attrs={'class': 'form-control'}),
             'email' : forms.EmailInput(attrs={'class': 'form-control'}),
